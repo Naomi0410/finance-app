@@ -33,7 +33,7 @@ export const getSortOption = (sort: string | undefined): Record<string, SortDire
   }
 };
 
-export const getBillsSortQuery = (sort: string | undefined): Record<string, SortDirection> => {
+export const getBillsSortQuery = (sort: string | undefined): Record<string, 1 | -1> => {
   switch (sort) {
     case 'Oldest':
       return { dueDay: -1 };
