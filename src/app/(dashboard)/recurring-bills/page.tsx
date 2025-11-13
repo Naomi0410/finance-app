@@ -25,22 +25,22 @@ export default async function RecurringBillsPage({ searchParams }: any) {
 
   const today = new Date().getDate();
 
-  const paid = bills.filter((bill: any) => bill.dueDay < today);
+  const paid = bills.filter((bill: Bill) => bill.dueDay < today);
   const dueSoon = bills.filter(
-    (bill: any) => bill.dueDay >= today && bill.dueDay - today <= 3
+    (bill: Bill) => bill.dueDay >= today && bill.dueDay - today <= 3
   );
-  const upcoming = bills.filter((bill: any) => bill.dueDay - today > 3);
+  const upcoming = bills.filter((bill: Bill) => bill.dueDay - today > 3);
 
   const totalAmount = bills.reduce(
-    (sum: number, bill: any) => sum + bill.amount,
+    (sum: number, bill: Bill) => sum + bill.amount,
     0
   );
   const totalUpcomingAmount = [...dueSoon, ...upcoming].reduce(
-    (sum: number, bill: any) => sum + bill.amount,
+    (sum: number, bill: Bill) => sum + bill.amount,
     0
   );
   const dueSoonAmount = dueSoon.reduce(
-    (sum: number, bill: any) => sum + bill.amount,
+    (sum: number, bill: Bill) => sum + bill.amount,
     0
   );
 
