@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Mentor - Personal finance app solution
 
-## Getting Started
+This is a solution to the [Personal finance app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/personal-finance-app-JfjtZgyMt1). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+
+
+
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- See all of the personal finance app data at-a-glance on the overview page
+- View all transactions on the transactions page with pagination for every ten transactions
+- Search, sort, and filter transactions
+- Create, read, update, delete (CRUD) budgets and saving pots
+- View the latest three transactions for each budget category created
+- View progress towards each pot
+- Add money to and withdraw money from pots
+- View recurring bills and the status of each for the current month
+- Search and sort recurring bills
+- Receive validation messages if required form fields aren't completed
+- Navigate the whole app and perform all actions using only their keyboard
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+- **Bonus**: Save details to a database (build the project as a full-stack app)
+- **Bonus**: Create an account and log in (add user authentication to the full-stack app)
+
+### Screenshot
+
+![](./preview.jpg)
+
+### Links
+
+- Solution URL: (https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+
+## My process
+
+### Built with
+
+Semantic HTML5
+
+CSS custom properties
+
+Tailwind CSS
+
+React
+
+Next.js (App Router)
+
+MongoDB & Prisma
+
+TypeScript
+
+Vercel (deployment)
+
+
+
+### What I learned
+
+This project helped me deepen my understanding of:
+
+Next.js App Router and server/client component boundaries
+
+Optimizing performance with router.refresh() and dynamic() imports
+
+Managing complex UI state with modals and dropdowns
+
+Building accessible, keyboard-navigable interfaces
+
+Structuring a full-stack app with authentication and database persistence
+
+```html
+<h1>Some HTML code I'm proud of</h1>
+```
+```ts
+router.refresh();
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Continued development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+In future iterations, I’d like to:
 
-## Learn More
+Add dark mode support
 
-To learn more about Next.js, take a look at the following resources:
+Implement recurring transaction automation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Add charts for visualizing spending trends
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Improve offline support with service workers
 
-## Deploy on Vercel
+### Useful resources
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Next.js App Router Docs
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Frontend Mentor Community
+
+Tailwind UI Patterns
+
+Prisma Docs
+
+## Author
+
+- Website - [Temitope Abiola](https://github.com/Naomi0410)
+- Frontend Mentor - [@Naomi0410](https://www.frontendmentor.io/profile/Naomi0410)
+
+

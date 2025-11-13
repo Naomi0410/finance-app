@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url('/assets/fonts/PublicSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url('/assets/fonts/PublicSans-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+
+@theme {  
+  --color-beige-500: #98908B;
+  --color-beige-100: #F8F4F0;
+  --color-grey-900: #201F24;
+  --color-grey-850: #2a2a2a;
+  --color-grey-500: #696868;
+  --color-grey-300: #B3B3B3;
+  --color-grey-200: #D2D2D2;
+  --color-grey-100: #F2F2F2;
+  --color-green: #277C78;
+  --color-yellow: #F2CDAC;
+  --color-cyan: #82C9D7;
+  --color-navy: #626070;
+  --color-red: #C94736;
+  --color-purple: #826CB0;
+  --color-purple-other: #AF81BA;
+  --color-turquoise: #597C7C;
+  --color-brown: #93674F;
+  --color-magenta: #934F6F;
+  --color-blue: #3F82B2;
+  --color-navy-grey: #97A0AC;
+  --color-army-green: #7F9161;
+  --color-gold: #CAB361;
+  --color-orange: #BE6C49;
+  --color-white: #FFFFFF;
+  --color-pink: #AF81BA;
+
+  --spacing-500: 40px;
+  --spacing-400: 32px;
+  --spacing-300: 24px;
+  --spacing-250: 20px;
+  --spacing-200: 16px;
+  --spacing-150: 12px;
+  --spacing-100: 8px;
+  --spacing-50: 4px;
+
+  --breakpoint-lg: 1060px;
+  --breakpoint-1350: 1350px;
+  --breakpoint-1570: 1570px;
+}
+
+@layer utilities {
+  .text-preset-1 {
+    font-size: 32px; 
+    line-height: 120%;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+
+  .text-preset-2 {
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+
+  .text-preset-3 {
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+
+  .text-preset-4 {
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0;
+    font-weight: 400; 
+  }
+
+  .text-preset-4-bold {
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0;
+    font-weight: 700; 
+  }
+
+  .text-preset-5 {
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  .text-preset-5-bold {
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.15s ease-out forwards;
+  }
+  .animate-fadeOut {
+    animation: fadeOut 0.15s ease-in forwards;
+  }
+  .animate-scaleIn {
+    animation: scaleIn 0.15s ease-out forwards;
+  }
+  .animate-scaleOut {
+    animation: scaleOut 0.15s ease-in forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}

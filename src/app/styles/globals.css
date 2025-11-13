@@ -1,0 +1,21 @@
+@import 'react-loading-skeleton/dist/skeleton.css';
+
+* {
+  box-sizing: border-box;
+
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Public Sans', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+*:focus,
+*:active {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
