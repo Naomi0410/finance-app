@@ -25,13 +25,32 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) return null;
+        if (!credentials?.email || !credentials?.password) {
+          console.log("❌ Missing credentials");
+          return null;
+        }
 
         const user = await getUser(credentials.email);
-        if (!user || !user.password) return null;
+        if (!user) {
+          console.log("❌ User not found");
+          return null;
+        }
 
-        const passwordsMatch = await compare(credentials.password, user.password);
-        if (!passwordsMatch) return null;
+        if (!user.password) {
+          console.log("❌ User has no password set");
+          return null;
+        }
+
+        const passwordsMatch = await compare(
+          credentials.password,
+          user.password
+        );
+        if (!passwordsMatch) {
+          console.log("❌ Password mismatch");
+          return null;
+        }
+
+        console.log("✅ Credentials valid, logging in user:", user.email);
 
         return {
           id: user._id.toString(),
@@ -62,7 +81,9 @@ export const authOptions = {
         const usersCollection = db.collection("users");
         const accountsCollection = db.collection("accounts");
 
-        const existingUser = await usersCollection.findOne({ email: user.email });
+        const existingUser = await usersCollection.findOne({
+          email: user.email,
+        });
 
         if (existingUser) {
           const linkedAccount = await accountsCollection.findOne({
