@@ -5,7 +5,7 @@ import BudgetModal from "./BudgetModal";
 import { Budget } from "@/types/budget";
 
 type Props = {
-  setBudgets: React.Dispatch<React.SetStateAction<Budget[]>>;
+  setBudgets?: React.Dispatch<React.SetStateAction<Budget[]>>;
   isDemoPage?: boolean;
 };
 
