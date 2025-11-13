@@ -2,7 +2,7 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcrypt-ts";
 import { getUser } from "./mongodb";
-import type { Account } from "next-auth";
+import type { Account, Profile, User } from "next-auth";
 import type { AdapterUser } from "next-auth/adapters";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import client from "@/lib/mongodb";
@@ -46,13 +46,19 @@ export const authOptions = {
   ],
 
   callbacks: {
-    async signIn({
-      user,
-      account,
-    }: {
-      user: AdapterUser;
+    async signIn(params: {
+      user: User | AdapterUser;
       account: Account | null;
+      profile?: Profile;
+      email?: { verificationRequest?: boolean };
+      credentials?: Record<string, unknown>;
     }) {
+      const { user, account } = params;
+
+      if (!("emailVerified" in user)) {
+        return false;
+      }
+
       if (account?.provider === "google") {
         const db = client.db();
         const usersCollection = db.collection("users");
