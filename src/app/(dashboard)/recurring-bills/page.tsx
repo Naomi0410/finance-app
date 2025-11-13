@@ -8,6 +8,7 @@ import ImageFallback from "@/components/ui/ImageFallback";
 import { formatSuffix } from "@/lib/utils";
 import { getBillsSortQuery } from "@/lib/utils";
 import { getBills } from "@/lib/data/getRecurringBills";
+import { Bill } from "@/types/bill";
 
 export default async function RecurringBillsPage({ searchParams }: any) {
   const user = await getCurrentUser();
@@ -76,7 +77,10 @@ export default async function RecurringBillsPage({ searchParams }: any) {
                 <span className="text-grey-500">Paid Bills</span>
                 <span className="text-preset-5-bold text-grey-900">
                   {paid.length} (
-                  {formatCurrency(paid.reduce((s, b) => s + b.amount, 0))})
+                  {formatCurrency(
+                    paid.reduce((s: number, b: Bill) => s + b.amount, 0)
+                  )}
+                  )
                 </span>
               </div>
               <div className="flex justify-between py-200">
@@ -122,7 +126,7 @@ export default async function RecurringBillsPage({ searchParams }: any) {
             </div>
 
             {/* Rows */}
-            {bills.map((bill, i) => {
+            {bills.map((bill: Bill, i: number) => {
               const isPaid = bill.dueDay < today;
               const isDueSoon =
                 bill.dueDay >= today && bill.dueDay - today <= 3;
