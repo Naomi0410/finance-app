@@ -34,7 +34,7 @@ export default function RootLayout({
           sizes="32x32"
           href="/assets/images/favicon-32x32.png"
         />
-        <link rel="canonical" href="https://yourdomain.com" />
+        <link rel="canonical" href="https://finance-app-gamma-liard.vercel.app" />
       </head>
       <body className="bg-beige-100 h-full">
         {children}

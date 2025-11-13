@@ -46,8 +46,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://your-solution-url.com]
+- Live Site URL: [https://finance-app-gamma-liard.vercel.app]
 
 ## My process
 
@@ -117,7 +117,7 @@ Prisma Docs
 
 ## Author
 
-- Website - [Temitope Abiola](https://github.com/Naomi0410)
-- Frontend Mentor - [@Naomi0410](https://www.frontendmentor.io/profile/Naomi0410)
+- Website - [(https://github.com/Naomi0410]
+- Frontend Mentor - [https://www.frontendmentor.io/profile/Naomi0410]
 
 
