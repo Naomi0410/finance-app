@@ -30,10 +30,7 @@ export const authOptions = {
         const user = await getUser(credentials.email);
         if (!user || !user.password) return null;
 
-        const passwordsMatch = await compare(
-          credentials.password,
-          user.password
-        );
+        const passwordsMatch = await compare(credentials.password, user.password);
         if (!passwordsMatch) return null;
 
         return {
@@ -55,18 +52,17 @@ export const authOptions = {
     }) {
       const { user, account } = params;
 
-      if (!("emailVerified" in user)) {
-        return false;
-      }
-
       if (account?.provider === "google") {
+        // Only check emailVerified for Google accounts
+        if (!("emailVerified" in user)) {
+          return false;
+        }
+
         const db = client.db();
         const usersCollection = db.collection("users");
         const accountsCollection = db.collection("accounts");
 
-        const existingUser = await usersCollection.findOne({
-          email: user.email,
-        });
+        const existingUser = await usersCollection.findOne({ email: user.email });
 
         if (existingUser) {
           const linkedAccount = await accountsCollection.findOne({
@@ -90,8 +86,12 @@ export const authOptions = {
 
           return true;
         }
+
+        // Allow sign-in for new Google users
+        return true;
       }
 
+      // Allow credentials login without blocking
       return true;
     },
   },
