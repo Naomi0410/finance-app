@@ -3,20 +3,19 @@
 import { useState } from "react";
 import Image from "next/image";
 
-
 export function Form({
-  action,
+  onSubmit,
   children,
   showNameField = false,
 }: {
-  action: any;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   children: React.ReactNode;
   showNameField?: boolean;
 }) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <form action={action} className="flex flex-col">
+    <form onSubmit={onSubmit} className="flex flex-col">
       {showNameField && (
         <>
           <label
@@ -69,7 +68,11 @@ export function Form({
           tabIndex={-1}
         >
           <Image
-            src={showPassword ? "/assets/images/icon-hide-password.svg" : "/assets/images/icon-show-password.svg"}
+            src={
+              showPassword
+                ? "/assets/images/icon-hide-password.svg"
+                : "/assets/images/icon-show-password.svg"
+            }
             alt={showPassword ? "Hide password" : "Show password"}
             width={15}
             height={10}

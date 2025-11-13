@@ -1,31 +1,35 @@
+'use client';
+
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Form } from '@/components/ui/Form';
-import { createUser, getUser } from '@/lib/mongodb';
 import { SubmitButton } from '@/components/ui/SubmitButton';
-import { redirect } from 'next/navigation';
 
 export default function RegisterPage() {
-  async function register(formData: FormData) {
-    'use server';
-    const name = formData.get('name') as string;
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
- 
-    const user = await getUser(email);
-    if (!user) {
-      console.log('User does not exist, creating...');
-      await createUser(name, email, password); 
-      redirect('/login/?signUpSuccess=1');
-    } else {
-      redirect('/register/?signUpError=1');
-    }
-  }
+  const router = useRouter();
 
   return (
     <section>
       <h1 className="text-preset-1 text-grey-900 pb-400">Sign Up</h1>
 
-      <Form action={register} showNameField>
+      <Form
+        showNameField
+        onSubmit={async (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.currentTarget);
+
+          const res = await fetch('/api/register', {
+            method: 'POST',
+            body: formData,
+          });
+
+          if (res.ok) {
+            router.push('/login/?signUpSuccess=1');
+          } else {
+            router.push('/register/?signUpError=1');
+          }
+        }}
+      >
         <SubmitButton>Sign Up</SubmitButton>
       </Form>
 

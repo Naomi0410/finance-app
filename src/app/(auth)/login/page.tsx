@@ -25,12 +25,28 @@ export default function LoginPage() {
     }
   }
 
-
   return (
     <section className="flex flex-col">
       <h1 className="text-preset-1 text-grey-900 pb-400">Login</h1>
 
-      <Form action={login}>
+      <Form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.currentTarget);
+
+          const result = await signIn("credentials", {
+            redirect: false,
+            email: formData.get("email") as string,
+            password: formData.get("password") as string,
+          });
+
+          if (!result?.error) {
+            router.push("/?loginSuccess=1");
+          } else {
+            router.push("/?loginError=1");
+          }
+        }}
+      >
         <SubmitButton className="mb-100">Login</SubmitButton>
       </Form>
 
