@@ -64,7 +64,7 @@ export default function DemoOverviewPage() {
 
       <StatCards balance={balance} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-[minmax(650px,3fr)_4fr] gap-300 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(500px,3fr)_4fr] gap-300 items-start">
         <div className="flex flex-col gap-300">
           {/* Pots */}
           <Card className="flex flex-col gap-250 px-250 py-300 sm:p-400">
